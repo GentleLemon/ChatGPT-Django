@@ -1,12 +1,14 @@
 <!-- query.html -->
 <html>
+<meta charset="utf-8">
 <head>
-    <title>Query</title>
+    <title>沉浸式聊天</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.0/dist/js.cookie.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+    <link rel="stylesheet" href="stars.css">
     <script>
         $(document).ready(function() {
             // Send the form on enter keypress and avoid if shift is pressed
@@ -45,15 +47,35 @@
             });
         });
     </script>
+    <style>
+		/* 设置标题样式 */
+		h1 {
+			display: inline-block;
+			font-size: 24px;
+			color: #333;
+			margin-right: 10px;
+		}
+
+		/* 设置星星样式 */
+		.star {
+			display: inline-block;
+			font-size: 24px;
+			color: gold;
+			transform: translateY(-2px);
+		}
+    </style>
 </head>
 <body>
     <div class="container p-3">
-        <h3>ChatGPT Clone</h3>
+        <h3>ChatGPT By Lemon 🍋 </h3>
         <a href="https://github.com/GentleLemon/ChatGPT-Django" class="link-info">Project on Github</a>
+        <div class="star">&#x2605;</div>
+        <br>
+        <a href="https://outlook.live.com/" class="link-info">我的邮箱：peixiaong@outlook.com</a>
         <div class="mb-3">
             <form method="post">
                 {% csrf_token %}
-                <label for="prompt" class="form-label"><strong>Prompt: </strong></label>
+                <label for="prompt" class="form-label"><strong>提问示例：给我写一份三道菜的菜单。 </strong></label>
                 <textarea class="form-control" type="textarea" id="prompt" name="prompt" rows="3"></textarea>
                 <br>
                 <button class="btn btn-primary" type="submit">Submit</button>
@@ -63,7 +85,6 @@
         <div class="mb-3">
             <h6>Response:</h6> 
             <div class="container border overflow-auto h-50" id="response"></div>
-            
         </div>
     </div>
 </body>
